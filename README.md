@@ -34,6 +34,7 @@
 Python 3.11+
 
 * <a href="https://github.com/jhunufernandes/sthali-crud" class="external-link" target="_blank">SthaliCRUD</a>
+* <a href="https://apscheduler.readthedocs.io/" class="external-link" target="_blank">APScheduler</a>
 * <a href="https://fastapi.tiangolo.com/" class="external-link" target="_blank">FastAPI</a>
 * <a href="https://tinydb.readthedocs.io/" class="external-link" target="_blank">TinyDB</a>
 

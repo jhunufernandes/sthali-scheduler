@@ -12,8 +12,8 @@ RUN apk add --no-cache build-base libffi-dev openssl-dev && \
 
 FROM base AS final
 
-COPY . /app
+COPY ./src /app/src
 
-ENTRYPOINT ["uvicorn", "run:app", "--host", "0.0.0.0", "--port", "80"]
+ENTRYPOINT ["uvicorn", "src.run:app", "--host", "0.0.0.0", "--port", "80"]
 
 EXPOSE 80

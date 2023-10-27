@@ -1,4 +1,6 @@
+apscheduler
 fastapi
-sthali-crud
+httpx
+# sthali-crud
 tinydb
 uvicorn
