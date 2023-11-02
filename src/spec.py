@@ -80,6 +80,30 @@ SPEC = {
                     "name": "day_of_week",
                     "type": str,
                 },
+                {
+                    "name": "service",
+                    "type": str,
+                },
+                {
+                    "name": "endpoint",
+                    "type": str,
+                },
+                {
+                    "name": "method",
+                    "type": str,
+                },
+                {
+                    "name": "headers",
+                    "type": dict,
+                },
+                {
+                    "name": "body",
+                    "type": dict,
+                },
+                {
+                    "name": "query",
+                    "type": dict,
+                },
             ],
         },
     ]

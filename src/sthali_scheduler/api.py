@@ -41,6 +41,6 @@ class API:
         raise HTTPException(500, errors)
 
 
-def call(service: str, **kwargs) -> dict:
+def call(service: str, request_kwargs: dict) -> dict:
     client = API(service)
-    client.request(**kwargs)
+    client.request(**request_kwargs)
