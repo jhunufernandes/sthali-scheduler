@@ -4,3 +4,5 @@ httpx
 # sthali-crud
 tinydb
 uvicorn
+pyyaml
+pydantic
