@@ -18,7 +18,7 @@ async def get_schedules(app: FastAPI) -> list:
             "day": schedule["day_of_month"],
             "month": schedule["month"],
             "day_of_week": schedule["day_of_week"],
-            "args": schedule
+            "args": schedule,
         }
         for schedule in await app.extra["db"]["schedules"].read_all()
     ]
