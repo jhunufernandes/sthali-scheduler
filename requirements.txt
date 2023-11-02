@@ -1,4 +1,0 @@
-fastapi
-sthali-crud
-tinydb
-uvicorn

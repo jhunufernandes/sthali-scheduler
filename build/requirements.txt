@@ -1,0 +1,8 @@
+apscheduler
+fastapi
+httpx
+# sthali-crud
+tinydb
+uvicorn
+pyyaml
+pydantic

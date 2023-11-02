@@ -1,84 +1,95 @@
 <p align="center">
-    <a href="docs/images/scheduler.svg">
-        <img src="docs/images/scheduler.svg" alt="SthaliScheduler" height=720>
+    <a href="https://jhunufernandes.github.io/sthali-scheduler/images/scheduler.svg">
+        <img src="https://jhunufernandes.github.io/sthali-scheduler/images/scheduler.svg" alt="SthaliScheduler" height="35%">
     </a>
-    <!-- <a href="https://pypi.org/project/sthali-crud" target="_blank">
-        <img src="https://img.shields.io/pypi/v/sthali-crud?label=Version&color=%232EBC4F" alt="Package version">
-    </a> -->
-    <!-- <a href="https://pypi.org/project/sthali-crud" target="_blank">
-        <img src="https://img.shields.io/pypi/pyversions/sthali-crud.svg?label=Python&color=%232EBC4F" alt="Supported Python versions">
-    </a> -->
-    <a href="https://pypi.org/project/sthali-scheduler" target="_blank">
-        <img src="https://img.shields.io/github/license/jhunufernandes/sthali-scheduler?label=License&color=%232EBC4F" alt="License">
+    <em>A FastAPI package for schedule tasks</em>
+</p>
+<p align="center">
+    <a href="https://pypi.org/project/sthali-scheduler/" target="_blank">
+        <img src="https://img.shields.io/pypi/v/sthali-scheduler?label=Python%20Version&logo=python&color=%23ca5b32&logoColor=white" alt="">
     </a>
+    <a href="https://github.com/jhunufernandes/sthali-scheduler/blob/main/docs/LICENSE" target="_blank">
+        <img src="https://img.shields.io/github/license/jhunufernandes/sthali-scheduler?label=License&logo=opensourceinitiative&color=%23ca5b32&logoColor=white" alt="">
+    </a>
+</p>
+<p align="center">
     <a href="https://github.com/jhunufernandes/sthali-scheduler/actions/workflows/test-package.yml" target="_blank">
-        <img src="https://github.com/jhunufernandes/sthali-scheduler/actions/workflows/test-package.yml/badge.svg" alt="Tests">
+        <img src="https://github.com/jhunufernandes/sthali-scheduler/actions/workflows/test-package.yml/badge.svg" alt="">
     </a>
-    <a href="https://github.com/jhunufernandes/sthali-scheduler/actions/workflows/upload-package.yml" target="_blank">
-        <img src="https://github.com/jhunufernandes/sthali-scheduler/actions/workflows/upload-package.yml/badge.svg" alt="Build">
+    <a href="https://github.com/jhunufernandes/sthali-scheduler/actions/workflows/build-upload-pypi.yml" target="_blank">
+        <img src="https://github.com/jhunufernandes/sthali-scheduler/actions/workflows/build-upload-pypi.yml/badge.svg" alt="">
+    </a>
+    <a href="https://github.com/jhunufernandes/sthali-scheduler/actions/workflows/build-upload-dockerhub.yml" target="_blank">
+        <img src="https://github.com/jhunufernandes/sthali-scheduler/actions/workflows/build-upload-dockerhub.yml/badge.svg" alt="">
+    </a>
+    <a href="https://github.com/jhunufernandes/sthali-scheduler/actions/workflows/build-upload-ghcr.yml" target="_blank">
+        <img src="https://github.com/jhunufernandes/sthali-scheduler/actions/workflows/build-upload-ghcr.yml/badge.svg" alt="">
     </a>
 </p>
 
+**Docs**: [https://jhunufernandes.github.io/sthali-scheduler/](https://jhunufernandes.github.io/sthali-scheduler/)
+
+**PyPI**: [https://pypi.org/project/sthali-scheduler/](https://pypi.org/project/sthali-scheduler/)
+
+**Source Code**: [https://github.com/jhunufernandes/sthali-scheduler/](https://github.com/jhunufernandes/sthali-scheduler/)
+
+**Sthali Board**: [https://github.com/users/jhunufernandes/projects/4/](https://github.com/users/jhunufernandes/projects/4/)
+
+
+
 ---
 
-<!-- **PyPI**: <a href="https://pypi.org/project/sthali-crud/" target="_blank">https://pypi.org/project/sthali-crud/</a> -->
 
-**Source Code**: <a href="https://github.com/jhunufernandes/sthali-scheduler" target="_blank">https://github.com/jhunufernandes/sthali-scheduler</a>
-
-**Sthali Board**: <a href="https://github.com/users/jhunufernandes/projects/4" target="_blank">https://github.com/users/jhunufernandes/projects/4</a>
-
----
 
 ## Requirements
 
-Python 3.11+
+Python >= 3.11
+* [SthaliCRUD](https://github.com/jhunufernandes/sthali-crud/)
+* [APScheduler](https://apscheduler.readthedocs.io/)
+* [HTTPX](https://www.python-httpx.org/)
+* [uvicorn](https://www.uvicorn.org/)
 
-* <a href="https://github.com/jhunufernandes/sthali-crud" class="external-link" target="_blank">SthaliCRUD</a>
-* <a href="https://fastapi.tiangolo.com/" class="external-link" target="_blank">FastAPI</a>
-* <a href="https://tinydb.readthedocs.io/" class="external-link" target="_blank">TinyDB</a>
 
-## Installation
 
-<div class="termy">
+## Test
 
-```console
-$ docker pull sthali-scheduler
-```
-
-## Configuration
-
-<div class="termy">
+You can test this package alone by cloning the repo
 
 ```console
-
-Nothing to see here, plz disperse
-
+$ git clone https://github.com/jhunufernandes/sthali-scheduler/
+...
+config your env
+...
+(.venv)$ export ENV=DOCKER
+(.venv)$ ./run.sh
 ```
 
-## Run
-
-<div class="termy">
+or pulling the container.
 
 ```console
-docker run --name sthali-scheduler -p 9000:80 sthali-scheduler
+$ docker pull jhunufernandes/sthali-scheduler
+$ export ENV=DOCKER
+$ ./run.sh
 ```
 
-## Automatic API docs
+#### Automatic API docs
 
-Now go to <a href="http://127.0.0.1:9000/docs" class="external-link" target="_blank">http://127.0.0.1:9000/docs</a>.
+Now go to [http://127.0.0.1:9000/docs](http://127.0.0.1:9000/docs). You will see the automatic interactive API documentation (provided by [Swagger UI](https://github.com/swagger-api/swagger-ui)).
 
-You will see the automatic interactive API documentation (provided by <a href="https://github.com/swagger-api/swagger-ui" class="external-link" target="_blank">Swagger UI</a>):
+#### Alternative API docs
 
-<!-- ![Swagger UI](https://fastapi.tiangolo.com/img/index/index-01-swagger-ui-simple.png) -->
+And now, go to [http://127.0.0.1:9000/redoc](http://127.0.0.1:9000/redoc). You will see the alternative automatic documentation (provided by <a href="https://github.com/Rebilly/ReDoc" class="external-link" target="_blank">ReDoc</a>).
 
-### Alternative API docs
 
-And now, go to <a href="http://127.0.0.1:9000/redoc" class="external-link" target="_blank">http://127.0.0.1:9000/redoc</a>.
 
-You will see the alternative automatic documentation (provided by <a href="https://github.com/Rebilly/ReDoc" class="external-link" target="_blank">ReDoc</a>):
+## Usage
 
-<!-- ![ReDoc](https://fastapi.tiangolo.com/img/index/index-02-redoc-simple.png) -->
+```console
+$ pip install sthali-scheduler
+```
+
+
 
 ## License
 
-This project is licensed under the terms of the MIT license.
+This project is licensed under the terms of the [MIT license](docs/LICENSE).
