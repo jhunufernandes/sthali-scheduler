@@ -1,6 +1,6 @@
 <p align="center">
-    <a href="https://jhunufernandes.github.io/sthali-scheduler/images/scheduler.svg">
-        <img src="https://jhunufernandes.github.io/sthali-scheduler/images/scheduler.svg" alt="SthaliScheduler" height="35%">
+    <a href="https://jhunufernandes.github.io/sthali-scheduler/docs/images/scheduler.svg">
+        <img src="https://jhunufernandes.github.io/sthali-scheduler/docs/images/scheduler.svg" alt="SthaliScheduler" height="35%">
     </a>
     <em>A FastAPI package for schedule tasks</em>
 </p>

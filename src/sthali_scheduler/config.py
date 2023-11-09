@@ -2,36 +2,38 @@ from contextlib import asynccontextmanager
 
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from fastapi import FastAPI
+from pydantic import RootModel
 
 from .api import call
+from .types import APIKwargs, RequestKwargs, SchedulerKwargs, Schedules
 
 
 scheduler = AsyncIOScheduler()
 
 
-async def get_schedules(app: FastAPI) -> list:
+async def get_schedules(app: FastAPI) -> list[Schedules]:
     print("Get schedules")
     return [
-        {
-            "id": schedule["id"],
-            "scheduler_kwargs": {
-                "minute": schedule["minute"],
-                "hour": schedule["hour"],
-                "day": schedule["day_of_month"],
-                "month": schedule["month"],
-                "day_of_week": schedule["day_of_week"],
-            },
-            "api_kwargs": {
-                "service": schedule["service"],
-                "request_kwargs": {
-                    "endpoint": schedule["endpoint"],
-                    "method": schedule["method"],
-                    "headers": schedule["headers"],
-                    "body": schedule["body"],
-                    "query": schedule["query"],
-                },
-            },
-        }
+        Schedules(
+            id=schedule["id"],
+            scheduler_kwargs=SchedulerKwargs(
+                minute=schedule["minute"],
+                hour=schedule["hour"],
+                day=schedule["day_of_month"],
+                month=schedule["month"],
+                day_of_week=schedule["day_of_week"],
+            ),
+            api_kwargs=APIKwargs(
+                service=schedule["service"],
+                request_kwargs=RequestKwargs(
+                    endpoint=schedule["endpoint"],
+                    method=schedule["method"],
+                    headers=schedule["headers"],
+                    body=schedule["body"],
+                    query=schedule["query"],
+                ),
+            ),
+        )
         for schedule in await app.extra["db"]["schedules"].read_all()
     ]
 
@@ -39,13 +41,17 @@ async def get_schedules(app: FastAPI) -> list:
 async def sync_scheduler(app: FastAPI, replace_existing: bool = False) -> None:
     print("Sync Scheduler")
     for schedule in await get_schedules(app):
+        api_kwargs = RootModel[APIKwargs](schedule.api_kwargs).model_dump()
+        scheduler_kwargs = RootModel[SchedulerKwargs](
+            schedule.scheduler_kwargs
+        ).model_dump()
         scheduler.add_job(
-            id=schedule["id"],
             func=call,
             trigger="cron",
-            kwargs=schedule["api_kwargs"],
+            kwargs=api_kwargs,
+            id=schedule.id,
             replace_existing=replace_existing,
-            **schedule["scheduler_kwargs"],
+            **scheduler_kwargs,
         )
 
 
